@@ -5,7 +5,7 @@ using WonderFood.Models.Events;
 
 namespace WonderFood.Application.Services;
 
-public class PedidoService(IPedidoRepository pedidoRepository) : IPedidoService
+public class PedidoService(IPedidoRepository pedidoRepository, IWonderfoodPedidosExternal pedidosExternal) : IPedidoService
 {
     public async Task ReceberPedidosParaPreparo(IniciarProducaoCommand pedido)
     {
@@ -22,8 +22,9 @@ public class PedidoService(IPedidoRepository pedidoRepository) : IPedidoService
         await pedidoRepository.Inserir(pedidoEntity);
     }
 
-    public Task AlterarStatusPedido(int numeroPedido, StatusPedido status)
+    public async Task AlterarStatusPedido(int numeroPedido, StatusPedido status)
     {
-        throw new NotImplementedException();
+        await pedidoRepository.AlterarStatus(numeroPedido, status);
+        await pedidosExternal.ComunicarAteracaoStatus(numeroPedido, status);
     }
 }

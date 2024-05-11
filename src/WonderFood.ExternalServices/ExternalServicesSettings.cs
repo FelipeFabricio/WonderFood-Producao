@@ -8,5 +8,5 @@ public class ExternalServicesSettings
 public class WonderfoodPedidos
 {
     public string BaseUrl { get; set; }
-    public string PedidoPronto { get; set; }
+    public string AlteracaoStatus { get; set; }
 }

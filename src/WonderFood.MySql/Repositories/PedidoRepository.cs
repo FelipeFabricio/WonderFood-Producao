@@ -8,9 +8,9 @@ namespace WonderFood.MySql.Repositories;
 
 public class PedidoRepository(WonderfoodContext context) : IPedidoRepository
 {
-    public async Task AlterarStatus(Guid idPedido, StatusPedido status)
+    public async Task AlterarStatus(int numeroPedido, StatusPedido status)
     {
-        await context.Pedidos.Where(p => p.Id == idPedido)
+        await context.Pedidos.Where(p => p.NumeroPedido == numeroPedido)
             .ExecuteUpdateAsync(setters => setters.SetProperty(b => b.Status, status));
     }
 
