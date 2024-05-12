@@ -10,8 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{ED
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{880FCD5F-D216-4F02-854D-5B4A6AA7CD17}"
 	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
+		Worker.Dockerfile = Worker.Dockerfile
 		.dockerignore = .dockerignore
+		WebApi.Dockerfile = WebApi.Dockerfile
+		docker-compose.yml = docker-compose.yml
+		.env = .env
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.Domain", "src\WonderFood.Domain\WonderFood.Domain.csproj", "{05A53109-7C7D-4917-B8CB-1BD2F4903E52}"
@@ -23,6 +26,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.MySql", "src\WonderFood.MySql\WonderFood.MySql.csproj", "{E791D739-CE75-4844-9BDF-E0680FCAB77E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.WebApi", "src\WonderFood.WebApi\WonderFood.WebApi.csproj", "{1171DF70-AD78-417D-8C4E-4052CDC5BF09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Settings", "Shared Settings", "{A94364A5-3FA0-4134-B34B-2D984F5D0B6B}"
+	ProjectSection(SolutionItems) = preProject
+		appsettings.json = appsettings.json
+		appsettings.Development.json = appsettings.Development.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

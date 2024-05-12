@@ -8,6 +8,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/WonderFood.Worker/WonderFood.Worker.csproj", "src/WonderFood.Worker/"]
+COPY ["src/WonderFood.Application/WonderFood.Application.csproj", "src/WonderFood.Application/"]
+COPY ["src/WonderFood.Domain/WonderFood.Domain.csproj", "src/WonderFood.Domain/"]
+COPY ["src/WonderFood.ExternalServices/WonderFood.ExternalServices.csproj", "src/WonderFood.ExternalServices/"]
+COPY ["src/WonderFood.MySql/WonderFood.MySql.csproj", "src/WonderFood.MySql/"]
 RUN dotnet restore "src/WonderFood.Worker/WonderFood.Worker.csproj"
 COPY . .
 WORKDIR "/src/src/WonderFood.Worker"

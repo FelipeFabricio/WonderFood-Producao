@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  worker:
+    image: felipefabricio/wdf.producao.worker
+    container_name: producao-worker
+    build:
+      context: .
+      dockerfile: Worker.Dockerfile
+    depends_on:
+      - mysql-db
+    ports:
+      - "7000:8080"
+      - "7001:8081"
+    env_file:
+      - .env
+      
+  webapi:
+    image: felipefabricio/wdf.producao.webapi
+    container_name: producao-webapi
+    build:
+      context: .
+      dockerfile: WebApi.Dockerfile
+    depends_on:
+      - mysql-db
+    ports:
+      - "8000:8080"
+      - "8001:8081"
+    env_file:
+      - .env
+  
+  mysql-db:
+    image: mysql:8.0.36
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: wdf-producao-db
+      MYSQL_USER: userdb
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3307:3306"

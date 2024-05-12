@@ -8,6 +8,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/WonderFood.WebApi/WonderFood.WebApi.csproj", "src/WonderFood.WebApi/"]
+COPY ["src/WonderFood.Application/WonderFood.Application.csproj", "src/WonderFood.Application/"]
+COPY ["src/WonderFood.Domain/WonderFood.Domain.csproj", "src/WonderFood.Domain/"]
+COPY ["src/WonderFood.ExternalServices/WonderFood.ExternalServices.csproj", "src/WonderFood.ExternalServices/"]
+COPY ["src/WonderFood.MySql/WonderFood.MySql.csproj", "src/WonderFood.MySql/"]
 RUN dotnet restore "src/WonderFood.WebApi/WonderFood.WebApi.csproj"
 COPY . .
 WORKDIR "/src/src/WonderFood.WebApi"

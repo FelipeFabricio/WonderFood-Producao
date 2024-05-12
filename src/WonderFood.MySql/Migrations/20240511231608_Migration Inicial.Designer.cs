@@ -12,7 +12,7 @@ using WonderFood.MySql.Context;
 namespace WonderFood.MySql.Migrations
 {
     [DbContext(typeof(WonderfoodContext))]
-    [Migration("20240511153542_Migration Inicial")]
+    [Migration("20240511231608_Migration Inicial")]
     partial class MigrationInicial
     {
         /// <inheritdoc />
@@ -38,10 +38,7 @@ namespace WonderFood.MySql.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("NumeroPedido")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("NumeroPedido"));
 
                     b.Property<string>("Observacao")
                         .HasColumnType("varchar(200)");

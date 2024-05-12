@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -21,8 +20,7 @@ namespace WonderFood.MySql.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(36)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NumeroPedido = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    NumeroPedido = table.Column<int>(type: "int", nullable: false),
                     Observacao = table.Column<string>(type: "varchar(200)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     DataEntrada = table.Column<DateTime>(type: "datetime(6)", nullable: false),

@@ -25,10 +25,17 @@ public class Pedido
 
     private void PreencherProdutosPedido(IEnumerable<ProdutosPedido> produtos)
     {
-        if(produtos is null || !produtos.Any())
-            throw new InvalidOperationException("Pedido sem produtos");
+        var produtosPedidos = produtos.ToList();
+        if (!produtosPedidos.Any())
+            throw new ArgumentException("A lista de produtos não pode ser vazia.");
 
-        Produtos = produtos;
+        if (produtosPedidos.Exists(p => p.Quantidade <= 0))
+            throw new ArgumentException("A quantidade de produtos não pode ser menor ou igual a zero.");
+        
+        foreach (var produto in produtosPedidos)
+            produto.PedidoId = Id;
+        
+        Produtos = produtosPedidos;
     }
     
     private void PreencherStatusPedido(StatusPedido status)
