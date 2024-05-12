@@ -11,6 +11,7 @@ namespace WonderFood.MySql.Mappings
             builder.ToTable("Pedidos");
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnType("varchar(36)").IsRequired();
+            builder.Property(p => p.DataEntrada).HasColumnType("datetime").IsRequired();
             builder.Property(p => p.Status).HasConversion<byte>().IsRequired();
             builder.Property(p => p.Observacao).HasColumnType("varchar(200)").IsRequired(false);
             builder.HasIndex(p => p.NumeroPedido).IsUnique();

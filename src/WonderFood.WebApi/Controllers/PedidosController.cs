@@ -5,8 +5,8 @@ using WonderFood.Domain.Entities.Enums;
 namespace WonderFood.WebApi.Controllers;
 
 [ApiController]
-[Route("[controller]/api")]
-public class ProducaoPedidoController(IPedidoService pedidoService) : ControllerBase
+[Route("api/[controller]")]
+public class PedidosController(IPedidoService pedidoService) : ControllerBase
 {
     /// <summary>
     /// Endpoint que altera o status do Pedido
