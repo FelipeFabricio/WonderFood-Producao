@@ -33,6 +33,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Settings", "Shared S
 		appsettings.Development.json = appsettings.Development.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4E628B47-3B50-43EC-8516-CE3F16F875C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.WebApi.UnitTests", "tests\WonderFood.WebApi.UnitTests\WonderFood.WebApi.UnitTests.csproj", "{CD951241-8FE5-4B5F-BD3C-4EE3B2355420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{1171DF70-AD78-417D-8C4E-4052CDC5BF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1171DF70-AD78-417D-8C4E-4052CDC5BF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1171DF70-AD78-417D-8C4E-4052CDC5BF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD951241-8FE5-4B5F-BD3C-4EE3B2355420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD951241-8FE5-4B5F-BD3C-4EE3B2355420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD951241-8FE5-4B5F-BD3C-4EE3B2355420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD951241-8FE5-4B5F-BD3C-4EE3B2355420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6AD46DAF-DBC8-4505-988F-25FDACCDD740} = {ED7DCE50-4E9F-4130-8E62-F44BCBDA7E87}
@@ -71,5 +79,6 @@ Global
 		{E430E4D7-FA95-4C83-B655-79B457BBC958} = {35FCBD30-42A3-4D1D-8898-2F174E3ACF97}
 		{E791D739-CE75-4844-9BDF-E0680FCAB77E} = {35FCBD30-42A3-4D1D-8898-2F174E3ACF97}
 		{1171DF70-AD78-417D-8C4E-4052CDC5BF09} = {ED7DCE50-4E9F-4130-8E62-F44BCBDA7E87}
+		{CD951241-8FE5-4B5F-BD3C-4EE3B2355420} = {4E628B47-3B50-43EC-8516-CE3F16F875C8}
 	EndGlobalSection
 EndGlobal
