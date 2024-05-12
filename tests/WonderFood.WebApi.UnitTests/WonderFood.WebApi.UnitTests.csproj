@@ -7,6 +7,7 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
         <ProjectGuid>{8ce5e450-3e14-49cf-a111-1598136e90a7}</ProjectGuid>
+        <RootNamespace>WonderFood.WebApi.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
