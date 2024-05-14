@@ -1,0 +1,91 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prd-webapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prd-webapi
+  template:
+    metadata:
+      labels:
+        app: prd-webapi
+    spec:
+      containers:
+        - name: prd-webapi
+          image: felipefabricio/wdf.producao.webapi:latest
+          ports:
+            - containerPort: 80
+              name: prd-webapi
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /_health
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /_ready
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 600
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "1Gi"
+            requests:
+              cpu: "0.1"
+              memory: "256Mi"
+          env:
+            - name: MYSQL_CONNECTION_PRODUCAO
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-connection-secret-producao
+                  key: connectionString
+      imagePullSecrets:
+        - name: dockerhub-secret
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: prd-webapi-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: prd-webapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: prd-webapi-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: prd-webapi
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 70
