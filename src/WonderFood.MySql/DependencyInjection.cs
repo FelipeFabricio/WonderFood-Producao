@@ -14,7 +14,7 @@ public static class DependencyInjection
     {
         var enviroment = configuration["ASPNETCORE_ENVIRONMENT"];
         var connectionString = enviroment == "Development" ? configuration["ConnectionStrings:DefaultConnection"] : 
-            configuration["MYSQL_CONNECTION"];
+            configuration["MYSQL_CONNECTION_PRODUCAO"];
             
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 36));
         services.AddDbContext<WonderfoodContext>(
