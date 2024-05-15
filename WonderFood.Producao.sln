@@ -29,12 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.MySql", "src\Won
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.WebApi", "src\WonderFood.WebApi\WonderFood.WebApi.csproj", "{1171DF70-AD78-417D-8C4E-4052CDC5BF09}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Settings", "Shared Settings", "{A94364A5-3FA0-4134-B34B-2D984F5D0B6B}"
-	ProjectSection(SolutionItems) = preProject
-		appsettings.json = appsettings.json
-		appsettings.Development.json = appsettings.Development.json
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4E628B47-3B50-43EC-8516-CE3F16F875C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.WebApi.UnitTests", "tests\WonderFood.WebApi.UnitTests\WonderFood.WebApi.UnitTests.csproj", "{CD951241-8FE5-4B5F-BD3C-4EE3B2355420}"
