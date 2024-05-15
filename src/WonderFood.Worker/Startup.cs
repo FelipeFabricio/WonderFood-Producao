@@ -10,7 +10,6 @@ using Serilog;
 
 namespace WonderFood.Worker;
 
-[ExcludeFromCodeCoverage]
 public class Startup
 {
     public IConfiguration Configuration { get; }
