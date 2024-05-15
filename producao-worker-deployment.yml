@@ -43,7 +43,7 @@ kind: Service
 metadata:
   name: prd-worker-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: prd-worker
   ports:
