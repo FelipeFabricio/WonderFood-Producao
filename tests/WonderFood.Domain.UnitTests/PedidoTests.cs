@@ -52,9 +52,4 @@ public class PedidoTests
             })
             .Generate(quantidadeItensLista);
     }
-
-    public Pedido GerarPedido(StatusPedido status)
-    {
-        return new Pedido(Guid.NewGuid(), status, 1, "Observacao", GerarListaProdutosPedido());
-    }
 }

@@ -38,7 +38,7 @@ public class PedidosControllerTests
     
     [Fact]
     [Trait("WebApi", "Pedido")]
-    public async Task AlterarStatusPedido_DeveRetornarBadRequest_QuandoAlteracaoNaoForEfetuada()
+    public async Task AlterarStatusPedido_DeveRetornarBadRequest_QuandoUmaExceptionForLancada()
     {
         //Arrange
         _pedidoService.AlterarStatusPedido(Arg.Any<int>(), Arg.Any<StatusPedido>()).Throws(new Exception());
