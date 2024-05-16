@@ -22,11 +22,10 @@ public class PedidoRepository(WonderfoodContext context) : IPedidoRepository
 
     public async Task<Pedido?> ObterPorNumeroPedido(int numeroPedido)
     {
-        var xx =  await context.Pedidos
+        var pedido =  await context.Pedidos
             .Include(p => p.Produtos)
-                // .ThenInclude(p => p.Produto)
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.NumeroPedido == numeroPedido);
-        return xx;
+        return pedido;
     }
 }
