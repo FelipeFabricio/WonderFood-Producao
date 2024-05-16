@@ -31,4 +31,12 @@
       <ProjectReference Include="..\WonderFood.MySql\WonderFood.MySql.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <SonarQubeSetting Include="sonar.coverage.exclusions">
+            <Value>
+                DependencyInjection.cs
+            </Value>
+        </SonarQubeSetting>
+    </ItemGroup>
+    
 </Project>

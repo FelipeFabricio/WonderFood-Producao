@@ -41,7 +41,7 @@ public class Pedido
     private void PreencherStatusPedido(StatusPedido status)
     {
         if(status != StatusPedido.AguardandoPreparo)
-            throw new InvalidOperationException("Status do pedido inválido");
+            throw new ArgumentException("Status do pedido inválido");
         
         Status = status;
     }

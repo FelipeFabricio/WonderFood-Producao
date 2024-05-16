@@ -22,4 +22,8 @@
       <ProjectReference Include="..\WonderFood.Domain\WonderFood.Domain.csproj" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <SonarQubeExclude>true</SonarQubeExclude>
+    </PropertyGroup>
+    
 </Project>

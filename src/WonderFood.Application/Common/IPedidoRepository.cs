@@ -7,4 +7,5 @@ public interface IPedidoRepository
 {
     Task AlterarStatus(int numeroPedido, StatusPedido status);
     Task Inserir(Pedido pedido);
+    Task<Pedido?> ObterPorNumeroPedido(int numeroPedido);
 }
