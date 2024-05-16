@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.Domain.UnitTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.Application.UnitTests", "tests\WonderFood.Application.UnitTests\WonderFood.Application.UnitTests.csproj", "{E68CB5D7-9C26-40D3-8658-E2718863FAE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WonderFood.Worker.UnitTests", "tests\WonderFood.Worker.UnitTests\WonderFood.Worker.UnitTests.csproj", "{B28CEEC8-D0B4-4559-912B-CB12D724F216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{E68CB5D7-9C26-40D3-8658-E2718863FAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E68CB5D7-9C26-40D3-8658-E2718863FAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E68CB5D7-9C26-40D3-8658-E2718863FAE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28CEEC8-D0B4-4559-912B-CB12D724F216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28CEEC8-D0B4-4559-912B-CB12D724F216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28CEEC8-D0B4-4559-912B-CB12D724F216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28CEEC8-D0B4-4559-912B-CB12D724F216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6AD46DAF-DBC8-4505-988F-25FDACCDD740} = {ED7DCE50-4E9F-4130-8E62-F44BCBDA7E87}
@@ -97,5 +103,6 @@ Global
 		{6CFA366A-939D-474B-91E7-62125CEE2421} = {4E628B47-3B50-43EC-8516-CE3F16F875C8}
 		{6F6EEADE-5C71-418D-9D02-CC20C8E58E25} = {4E628B47-3B50-43EC-8516-CE3F16F875C8}
 		{E68CB5D7-9C26-40D3-8658-E2718863FAE1} = {4E628B47-3B50-43EC-8516-CE3F16F875C8}
+		{B28CEEC8-D0B4-4559-912B-CB12D724F216} = {4E628B47-3B50-43EC-8516-CE3F16F875C8}
 	EndGlobalSection
 EndGlobal
