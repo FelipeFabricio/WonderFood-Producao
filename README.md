@@ -1,3 +1,7 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FelipeFabricio_WonderFood.Producao&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=FelipeFabricio_WonderFood.Producao)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=FelipeFabricio_WonderFood.Producao&metric=bugs)](https://sonarcloud.io/summary/new_code?id=FelipeFabricio_WonderFood.Producao)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FelipeFabricio_WonderFood.Producao&metric=coverage)](https://sonarcloud.io/summary/new_code?id=FelipeFabricio_WonderFood.Producao)
+
 # WonderFood.Produção
 
 ## :information_source: Sobre
