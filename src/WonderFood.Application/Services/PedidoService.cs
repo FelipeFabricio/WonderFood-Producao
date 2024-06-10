@@ -1,11 +1,13 @@
-﻿using WonderFood.Application.Common;
+﻿using MassTransit;
+using WonderFood.Application.Common;
 using WonderFood.Domain.Entities;
 using WonderFood.Domain.Entities.Enums;
 using WonderFood.Models.Events;
 
 namespace WonderFood.Application.Services;
 
-public class PedidoService(IPedidoRepository pedidoRepository, IWonderfoodPedidosExternal pedidosExternal) : IPedidoService
+public class PedidoService(IPedidoRepository pedidoRepository, IBus bus) 
+    : IPedidoService
 {
     public async Task ReceberPedidosParaPreparo(IniciarProducaoCommand pedido)
     {
@@ -25,6 +27,6 @@ public class PedidoService(IPedidoRepository pedidoRepository, IWonderfoodPedido
     public async Task AlterarStatusPedido(int numeroPedido, StatusPedido status)
     {
         await pedidoRepository.AlterarStatus(numeroPedido, status);
-        await pedidosExternal.ComunicarAteracaoStatus(numeroPedido, status);
+        await bus.Publish(new StatusPedidoAlteradoEvent(numeroPedido, status));
     }
 }

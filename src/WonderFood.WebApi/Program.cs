@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using MassTransit;
 using WonderFood.Application;
-using WonderFood.ExternalServices;
+using WonderFood.Models.Events;
 using WonderFood.MySql;
 using WonderFood.WebApi;
 
@@ -13,12 +14,30 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
 
-builder.Services.Configure<ExternalServicesSettings>(builder.Configuration.GetSection("ExternalServicesSettings"));
 builder.Services.AddSqlInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
-builder.Services.AddExternalServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger();
+
+var rabbitMqUser = "useradmin";
+var rabbitMqPassword = "senhaForte123!";
+var rabbitMqHost = "amqp://wonderfood_mq:5672";
+builder.Services.AddMassTransit(busConfigurator =>
+{
+    busConfigurator.UsingRabbitMq((_, cfg) =>
+    {
+        cfg.Host(rabbitMqHost, hst =>
+        {
+            hst.Username(rabbitMqUser);
+            hst.Password(rabbitMqPassword);
+        });
+                
+        cfg.Publish<StatusPedidoAlteradoEvent>(x =>
+        {
+            x.ExchangeType = "fanout";
+        });
+    });
+});
 
 var app = builder.Build();
 

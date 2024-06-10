@@ -14,6 +14,8 @@
     </PropertyGroup>
     
     <ItemGroup>
+        <PackageReference Include="MassTransit" Version="8.2.2" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.2" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4"/>
         <PackageReference Include="Serilog" Version="3.1.1" />
         <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
@@ -24,7 +26,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\WonderFood.Application\WonderFood.Application.csproj" />
-      <ProjectReference Include="..\WonderFood.ExternalServices\WonderFood.ExternalServices.csproj" />
       <ProjectReference Include="..\WonderFood.MySql\WonderFood.MySql.csproj" />
     </ItemGroup>
 
@@ -34,6 +35,22 @@
                 DependencyInjection.cs, Program.cs, Startup.cs
             </Value>
         </SonarQubeSetting>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Webhooks\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Webhooks\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Webhooks\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Webhooks\**" />
     </ItemGroup>
     
 </Project>
