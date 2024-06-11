@@ -24,14 +24,15 @@ public class PedidoService(IPedidoRepository pedidoRepository, IBus bus)
         await pedidoRepository.Inserir(pedidoEntity);
     }
 
-    public async Task AlterarStatusPedido(int numeroPedido, StatusPedido status)
+    public async Task AlterarStatusPedido(int numeroPedido, StatusPedido status, string motivoCancelamento)
     {
         var pedido = await pedidoRepository.ObterPorNumeroPedido(numeroPedido);
         await pedidoRepository.AlterarStatus(numeroPedido, status);
         await bus.Publish(new StatusPedidoAlteradoEvent
         {
             PedidoId = pedido.Id,
-            Status = status
+            Status = status,
+            MotivoCancelamento = motivoCancelamento
         });
     }
 }
