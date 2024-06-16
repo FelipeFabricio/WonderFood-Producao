@@ -19,9 +19,10 @@ builder.Services.AddApplication();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger();
 
-var rabbitMqUser = "useradmin";
-var rabbitMqPassword = "senhaForte123!";
-var rabbitMqHost = "amqp://wonderfood_mq:5672";
+var rabbitMqUser = builder.Configuration["RABBITMQ_DEFAULT_USER"];
+var rabbitMqPassword = builder.Configuration["RABBITMQ_DEFAULT_PASS"];
+var rabbitMqHost = builder.Configuration["RABBITMQ_HOST"];
+
 builder.Services.AddMassTransit(busConfigurator =>
 {
     busConfigurator.UsingRabbitMq((_, cfg) =>

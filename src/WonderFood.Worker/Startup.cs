@@ -33,9 +33,9 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwagger();
 
-        var rabbitMqUser = "useradmin";
-        var rabbitMqPassword = "senhaForte123!";
-        var rabbitMqHost = "amqp://wonderfood_mq:5672";
+        var rabbitMqUser = Configuration["RABBITMQ_DEFAULT_USER"];
+        var rabbitMqPassword = Configuration["RABBITMQ_DEFAULT_PASS"];
+        var rabbitMqHost = Configuration["RABBITMQ_HOST"];
 
         services.AddMassTransit(busConfigurator =>
         {
