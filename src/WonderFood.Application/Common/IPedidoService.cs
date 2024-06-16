@@ -6,5 +6,5 @@ namespace WonderFood.Application.Common;
 public interface IPedidoService
 {
     Task ReceberPedidosParaPreparo(IniciarProducaoCommand pedido);
-    Task AlterarStatusPedido(int numeroPedido, StatusPedido status, string motivoCancelamento);
+    Task AlterarStatusPedido(int numeroPedido, StatusPedido status, string? motivoCancelamento);
 }

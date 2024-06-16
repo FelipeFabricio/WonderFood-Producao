@@ -24,7 +24,7 @@ public class PedidoService(IPedidoRepository pedidoRepository, IBus bus)
         await pedidoRepository.Inserir(pedidoEntity);
     }
 
-    public async Task AlterarStatusPedido(int numeroPedido, StatusPedido status, string motivoCancelamento)
+    public async Task AlterarStatusPedido(int numeroPedido, StatusPedido status, string? motivoCancelamento)
     {
         var pedido = await pedidoRepository.ObterPorNumeroPedido(numeroPedido);
         await pedidoRepository.AlterarStatus(numeroPedido, status);
