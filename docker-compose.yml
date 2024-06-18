@@ -1,5 +1,9 @@
 version: '3.8'
 
+networks:
+  wonderfood_network:
+    external: true
+
 services:
   worker:
     image: felipefabricio/wdf.producao.worker
@@ -14,6 +18,8 @@ services:
       - "7001:8081"
     env_file:
       - .env
+    networks:
+      - wonderfood_network
       
   webapi:
     image: felipefabricio/wdf.producao.webapi
@@ -28,6 +34,8 @@ services:
       - "8001:8081"
     env_file:
       - .env
+    networks:
+      - wonderfood_network
   
   mysql-db:
     image: mysql:8.0.36
@@ -39,3 +47,5 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3307:3306"
+    networks:
+      - wonderfood_network

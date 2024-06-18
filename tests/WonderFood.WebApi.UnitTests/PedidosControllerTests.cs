@@ -27,7 +27,7 @@ public class PedidosControllerTests
     public async Task AlterarStatusPedido_DeveRetornarOk_QuandoAlteracaoForEfetuadaComSucesso()
     {
         //Arrange
-        _pedidoService.AlterarStatusPedido(NumeroPedido, Status).Returns(Task.CompletedTask);
+        _pedidoService.AlterarStatusPedido(NumeroPedido, Status, null).Returns(Task.CompletedTask);
 
         //Act
         var resultado = (OkResult)await _sut.AlterarStatusPedido(NumeroPedido, Status);
@@ -41,7 +41,7 @@ public class PedidosControllerTests
     public async Task AlterarStatusPedido_DeveRetornarBadRequest_QuandoUmaExceptionForLancada()
     {
         //Arrange
-        _pedidoService.AlterarStatusPedido(Arg.Any<int>(), Arg.Any<StatusPedido>()).Throws(new Exception());
+        _pedidoService.AlterarStatusPedido(Arg.Any<int>(), Arg.Any<StatusPedido>(), Arg.Any<string>()).Throws(new Exception());
 
         //Act
         var resultado = (BadRequestObjectResult)await _sut.AlterarStatusPedido(NumeroPedido, Status);

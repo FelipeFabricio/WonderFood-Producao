@@ -1,12 +1,12 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Polly;
+using Serilog;
 using WonderFood.Application;
-using WonderFood.ExternalServices;
 using WonderFood.MySql;
 using WonderFood.MySql.Context;
-using Serilog;
+using WonderFood.Worker.Consumers;
 
 namespace WonderFood.Worker;
 
@@ -27,13 +27,38 @@ public class Startup
                 options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
             });
-
-        services.Configure<ExternalServicesSettings>(Configuration.GetSection("ExternalServicesSettings"));
+        
         services.AddSqlInfrastructure(Configuration);
         services.AddApplication();
-        services.AddExternalServices();
         services.AddEndpointsApiExplorer();
         services.AddSwagger();
+
+        var rabbitMqUser = Configuration["RABBITMQ_DEFAULT_USER"];
+        var rabbitMqPassword = Configuration["RABBITMQ_DEFAULT_PASS"];
+        var rabbitMqHost = Configuration["RABBITMQ_HOST"];
+
+        services.AddMassTransit(busConfigurator =>
+        {
+            busConfigurator.AddConsumer<IniciarProducaoConsumer>();
+            busConfigurator.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host(rabbitMqHost, hst =>
+                {
+                    hst.Username(rabbitMqUser);
+                    hst.Password(rabbitMqPassword);
+                });
+
+                cfg.ReceiveEndpoint("iniciar_producao", e =>
+                {
+                    e.ConfigureConsumer<IniciarProducaoConsumer>(context);
+                    e.Bind("WonderFood.Models.Events:PagamentoProcessadoEvent", x =>
+                    {
+                        x.RoutingKey = "pagamento.processado";
+                        x.ExchangeType = "fanout";
+                    });
+                });
+            });
+        });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, WonderfoodContext dbContext)

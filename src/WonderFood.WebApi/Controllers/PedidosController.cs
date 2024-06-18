@@ -14,11 +14,14 @@ public class PedidosController(IPedidoService pedidoService) : ControllerBase
     /// <response code="200">Ok</response>
     /// <response code="400">Bad Request</response>
     [HttpPost("altera-status-pedido")]
-    public async Task<IActionResult> AlterarStatusPedido(int numeroPedido, StatusPedido status)
+    public async Task<IActionResult> AlterarStatusPedido(int numeroPedido, StatusPedido status, string? motivoCancelamento = null)
     {
         try
         {
-            await pedidoService.AlterarStatusPedido(numeroPedido, status);
+            if (status != StatusPedido.Cancelado) 
+                motivoCancelamento = null;
+            
+            await pedidoService.AlterarStatusPedido(numeroPedido, status, motivoCancelamento);
             return Ok();
         }
         catch (Exception e)
