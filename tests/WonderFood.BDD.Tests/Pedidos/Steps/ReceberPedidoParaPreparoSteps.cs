@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MassTransit;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using TechTalk.SpecFlow;
 using WonderFood.Application.Common;
@@ -15,12 +16,12 @@ namespace WonderFood.BDD.Tests.Pedidos.Steps;
 public class ReceberPedidoParaPreparoSteps
 {
     private readonly IPedidoRepository _pedidoRepository;
-    private readonly IWonderfoodPedidosExternal _pedidosExternal = Substitute.For<IWonderfoodPedidosExternal>();
     private readonly WonderfoodContext _context;
     private readonly InMemoryDbContextFactory _dbContextFactory;
     private readonly ServiceProvider _serviceProvider;
     private readonly PedidoService _pedidoService;
     private IniciarProducaoCommand _producaoCommand;
+    private IBus _bus = Substitute.For<IBus>();
 
     public ReceberPedidoParaPreparoSteps()
     {
@@ -33,7 +34,8 @@ public class ReceberPedidoParaPreparoSteps
         _serviceProvider = serviceCollection.BuildServiceProvider();
         _pedidoRepository = _serviceProvider.GetRequiredService<IPedidoRepository>();
         
-        _pedidoService = new PedidoService(_pedidoRepository, _pedidosExternal);
+        
+        _pedidoService = new PedidoService(_pedidoRepository, _bus);
     }
     
     [Given(@"que o Cliente efetua um pedido")]
