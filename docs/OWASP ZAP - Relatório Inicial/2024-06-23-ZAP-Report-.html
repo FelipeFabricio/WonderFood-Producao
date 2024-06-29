@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Report Inicial Sistema de Produção</title>
+<link href="2024-06-23-ZAP-Report-/common.css"
+	rel="stylesheet" type="text/css">
+<link href="2024-06-23-ZAP-Report-/light.css" rel="stylesheet" type="text/css">
+<script src="2024-06-23-ZAP-Report-/Chart.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function showHide(id) {
+        showHideElement(id + "reqh");
+        showHideElement(id + "reqb");
+        showHideElement(id + "resph");
+        showHideElement(id + "respb");
+    }
+    function showHideElement(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+<link rel="stylesheet" href="2024-06-23-ZAP-Report-/Chart.min.css">
+</head>
+<body>
+	<h1>
+		<!-- The ZAP Logo -->
+		<img src="2024-06-23-ZAP-Report-/zap32x32.png" alt="">
+		Report Inicial Sistema de Produção
+	</h1>
+	<p />
+	
+
+	<h3>
+		Generated on dom., 23 jun. 2024 13:57:16
+	</h3>
+	<h3>
+		ZAP Version: 2.15.0
+	</h3>
+	<h4>
+		ZAP is supported by the <a href="https://crashoverride.com/?zap=rep">Crash
+			Override Open Source Fellowship</a>
+	</h4>
+	
+		<canvas id="summaryChart" width="550" height="300"
+			style="border: 1px solid"></canvas>
+		<script type="text/javascript">
+            /*<![CDATA[*/
+            var title = "Alert Chart";
+            var labels = [
+            "Alto",
+            "M\u00E9dio",
+            "Baixo",
+            "Informativo"];
+            var data = [
+            null,
+            null,
+            null,
+            null];
+            /*]]>*/
+            new Chart(document.getElementById("summaryChart"),
+                    {
+                        "type" : "bar",
+                        "data" : {
+                            "labels" : labels,
+                            "datasets" : [ {
+                                "label" : title,
+                                "data" : data,
+                                "fill" : false,
+                                "backgroundColor" : [ "red", "orange",
+                                        "yellow", "blue" ],
+                                "borderWidth" : 1
+                            } ]
+                        },
+                        "options" : {
+                            "scales" : {
+                                "yAxes" : [ {
+                                    "ticks" : {
+                                        "beginAtZero" : true
+                                    }
+                                } ]
+                            },
+                            responsive : false
+                        }
+                    });
+        </script>
+		<p></p>
+	
+
+	
+		<h3 class="left-header">Summary of Alerts</h3>
+		<table class="summary">
+			<tr>
+				<th width="45%"
+					height="24">Nível de Risco</th>
+				<th width="55%"
+					align="center">Number of Alerts</th>
+			</tr>
+			<tr>
+				<td class="risk-3">
+					<div>Alto</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-2">
+					<div>Médio</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-1">
+					<div>Baixo</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="risk-0">
+					<div>Informativo</div>
+				</td>
+				<td align="center">
+					<div>0</div>
+				</td>
+			</tr>
+			
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alertas</h3>
+		<table class="alerts">
+			<tr>
+				<th width="60%" height="24">Nome</th>
+				<th width="20%"
+					align="center">Nível de Risco</th>
+				<th width="20%"
+					align="center">Number of Instances</th>
+			</tr>
+			
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Passing Rules</h3>
+		<table class="alerts">
+			<tr>
+				<th width="55%" height="24">Nome</th>
+				<th width="15%"
+					align="center">Rule Type</th>
+				<th width="15%"
+					align="center">Threshold</th>
+				<th width="15%"
+					align="center">Strength</th>
+			</tr>
+			
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/0/">Navegação no Diretório</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40003/">Injeção CRLF</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/6/">Travessia/Passagem de Caminho</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/7/">Inclusão de Arquivo Remoto</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40008/">Adulteração de parâmetros</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40009/">Incluir Lado do Servidor</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10058/">GET for POST</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40012/">Cross Site Scripting (Refletido)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40014/">Cross Site Scripting (Persistente)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/50000/">Regras de Varredura Ativa</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40016/">Cross Site Scripting (Persistente) - Primário</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40017/">Cross Site Scripting (Persistente) - Spider</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40018/">Injeção SQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40019/">Injeção SQL - MySQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40020/">Injeção SQL - Hypersonic SQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40021/">Injeção SQL - Oracle</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40022/">Injeção SQL - PostgreSQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40024/">Injeção SQL - SQLite</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40026/">Cross Site Scripting (baseado em DOM)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40027/">Injeção SQL - MsSQL</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40028/">Vazamento de Informação ELMAH</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40029/">Trace.axd Vazamento de Informação</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90017/">Injeção XSLT</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40032/">Vazamento de informações .htaccess</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40034/">.env Information Leak</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90019/">Injeção de Código no Lado do Servidor</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40035/">Hidden File Finder</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90021/">Injeção XPath</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90020/">Injeção Remota de Comandos de SO</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90023/">XML External Entity Attack</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90024/">Oracle Padding Genérico</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40042/">Spring Actuator Information Leak</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90026/">Spoofing de Ação SOAP</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40043/">Log4Shell</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90029/">Injeção de SOAP XML</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/40045/">Spring4Shell</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/20015/">Vulnerabilidade OpenSSL Heartbleed</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/30001/">Estouro de Buffer</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/20017/">Divulgação de Código-Fonte - CVE-2012-1823</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/30002/">Erro de Formato de String</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90035/">Server Side Template Injection</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/20018/">Execução Remota de Código - CVE-2012-1823</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90034/">Metadados de nuvem potencialmente expostos</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/20019/">Redirecionamento Externo</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90036/">Server Side Template Injection (Blind)</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10104/">User Agent Fuzzer</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10045/">Source Code Disclosure - /WEB-INF Folder</a></td>
+						<td align="center">Active</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">MEDIUM</td>
+					</tr>
+				
+			
+			
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10112/">Session Management Response Identified</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10113/">Verification Request Identified</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/2/">Private IP Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/3/">Session ID in URL Rewrite</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90001/">Viewstate JSF Inseguro</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10003/">Vulnerable JS Library (Powered by Retire.js)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90011/">Má Combinação de Charset</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10010/">Cookie No HttpOnly Flag</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10011/">Cookie Without Secure Flag</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10015/">Re-examine Cache-control Directives</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10017/">Cross-Domain JavaScript Source File Inclusion</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10019/">Content-Type Header Missing</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10020/">Anti-clickjacking Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10021/">X-Content-Type-Options Header Missing</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90022/">Application Error Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10023/">Divulgação de informações - Mensagens de Erro de Depuração</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10024/">Information Disclosure - Sensitive Information in URL</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10025/">Divulgação de Informações - Informações Confidenciais no Cabeçalho de Referência HTTP</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10027/">Divulgação de Informações - Comentários Suspeitos</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10028/">Open Redirect</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10029/">Cookie Poisoning</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10030/">User Controllable Charset</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10031/">User Controllable HTML Element Attribute (Potential XSS)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90030/">Detecção de arquivo WSDL</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/90033/">Cookie com Escopo Fraco</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10032/">Viewstate</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10033/">Navegação no Diretório</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10034/">Heartbleed OpenSSL Vulnerability (Indicative)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10035/">Strict-Transport-Security Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10036/">HTTP Server Response Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10037/">O servidor vaza informações por meio dos campos de cabeçalho de resposta HTTP &quot;X-Powered-By&quot;</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10038/">Content Security Policy (CSP) Header Not Set</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10039/">X-Backend-Server Header Information Leak</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10040/">Secure Pages Include Mixed Content</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10041/">HTTP to HTTPS Insecure Transition in Form Post</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10042/">HTTPS to HTTP Insecure Transition in Form Post</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10043/">User Controllable JavaScript Event (XSS)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10044/">Big Redirect Detected (Potential Sensitive Information Leak)</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10050/">Retrieved from Cache</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10052/">X-ChromeLogger-Data (XCOLD) Header Information Leak</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10054/">Cookie without SameSite Attribute</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10055/">CSP</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10056/">Vazamento de Informações do X-Debug-Token</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10057/">Hash de Nome de Usuário Encontrado</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10061/">X-AspNet-Version Response Header</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10062/">PII Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/50001/">Regras de Script de Varredura Passiva</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/50003/">Estatísticas de Regra de Varredura Passiva</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10202/">Ausência de tokens Anti-CSRF</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10096/">Divulgação de Data e Hora</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10097/">Hash Disclosure</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10098/">Configuração Incorreta Entre Domínios</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10105/">Método Fraco de Autenticação</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10108/">Reverse Tabnabbing</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10109/">Modern Web Application</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+					<tr>
+						<td><a
+							href="https://www.zaproxy.org/docs/alerts/10111/">Authentication Request Identified</a></td>
+						<td align="center">Passive</td>
+						<td align="center">MEDIUM</td>
+						<td align="center">-</td>
+					</tr>
+				
+			
+		</table>
+		<div class="spacer-lg"></div>
+	
+
+	<h2>Sites</h2>
+
+	<strong>Number of Sites tree nodes actively scanned:</strong>
+	4
+
+	
+		<h3>http://localhost:8000</h3>
+		
+			<table class="summary">
+				<tr>
+					<th width="45%" height="24">HTTP Response Code</th>
+					<th width="55%" align="center">Number of Responses</th>
+				</tr>
+
+				
+					<tr>
+						<td><a
+							href="https://developer.mozilla.org/docs/Web/HTTP/Status/404">404 Not Found</a>
+						</td>
+						<td align="center">
+							<div>244</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a
+							href="https://developer.mozilla.org/docs/Web/HTTP/Status/405">405 Method Not Allowed</a>
+						</td>
+						<td align="center">
+							<div>1</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a
+							href="https://developer.mozilla.org/docs/Web/HTTP/Status/200">200 OK</a>
+						</td>
+						<td align="center">
+							<div>239</div>
+						</td>
+					</tr>
+					
+				
+					<tr>
+						<td><a
+							href="https://developer.mozilla.org/docs/Web/HTTP/Status/400">400 Bad Request</a>
+						</td>
+						<td align="center">
+							<div>414</div>
+						</td>
+					</tr>
+					
+				
+			</table>
+			<div class="spacer-lg"></div>
+			<h4>No Authentication Statistics Found</h4>
+			
+		
+		
+
+		
+			<table class="summary">
+				<tr>
+					<th>Parameter Name</th>
+					<th>Type</th>
+					<th>Flags</th>
+					<th>Times Used</th>
+					<th># Values</th>
+				</tr>
+
+				
+					<tr>
+						<td>
+							<div>motivoCancelamento</div>
+						</td>
+						<td>
+							<div>URL</div>
+						</td>
+						<td></td>
+						<td>
+							<div>1</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>numeroPedido</div>
+						</td>
+						<td>
+							<div>URL</div>
+						</td>
+						<td></td>
+						<td>
+							<div>1</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>status</div>
+						</td>
+						<td>
+							<div>URL</div>
+						</td>
+						<td></td>
+						<td>
+							<div>1</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Content-Length</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>1</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Content-Type</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>1</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Date</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>2</div>
+						</td>
+						<td>
+							<div>2</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>Server</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>2</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+					<tr>
+						<td>
+							<div>content-length</div>
+						</td>
+						<td>
+							<div>Cabeçalho</div>
+						</td>
+						<td></td>
+						<td>
+							<div>1</div>
+						</td>
+						<td>
+							<div>1</div>
+						</td>
+					</tr>
+				
+			</table>
+		
+
+		<div class="spacer-lg"></div>
+	
+
+	
+		<h3>Alert Detail</h3>
+		
+	
+</body>
+</html>
+
