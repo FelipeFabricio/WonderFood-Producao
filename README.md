@@ -18,6 +18,8 @@ Sistema responsável pela parte de produção dos Pedidos do restaurante WonderF
 - #### Sumário Ubíquo: https://shre.ink/DGGX
 - #### Arquitetura de Infraestrutura no Azure: https://shre.ink/DGGC
 - #### Fluxo Autenticação com Azure AD B2C: https://shre.ink/DGGv
+- #### Relatório OWASP: https://shre.ink/DGu6
+- #### Relatório RIPD: https://shre.ink/DGuJ
 <br>
 
 ## :hammer_and_wrench:  Tecnologias utilizadas
