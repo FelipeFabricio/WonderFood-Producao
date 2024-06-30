@@ -68,6 +68,7 @@ public class Startup
         app.UseRouting();
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         ExecuteDatabaseMigration(dbContext);
+        SeedDatabase(app);
     }
 
     private void ExecuteDatabaseMigration(WonderfoodContext dbContext)
@@ -88,5 +89,22 @@ public class Startup
                         retryCount, timeSpan.Seconds);
                 });
         retryPolicy.Execute(() => { dbContext.Database.Migrate(); });
+    }
+    
+    private void SeedDatabase(IApplicationBuilder app)
+    {
+        using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+        {
+            var services = serviceScope.ServiceProvider;
+            try
+            {
+                SeedData.Initialize(services);
+            }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Startup>>();
+                logger.LogError(ex, "An error occurred seeding the DB.");
+            }
+        }
     }
 }
