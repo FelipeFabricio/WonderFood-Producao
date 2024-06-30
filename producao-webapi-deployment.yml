@@ -33,6 +33,25 @@ spec:
                 secretKeyRef:
                   name: mysql-connection-secret-producao
                   key: connectionString
+
+            - name: RABBITMQ_DEFAULT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-user-secret
+                  key: user
+                  
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-password-secret
+                  key: password
+                  
+            - name: RABBITMQ_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-host-secret
+                  key: host
+                  
       imagePullSecrets:
         - name: dockerhub-secret
 
